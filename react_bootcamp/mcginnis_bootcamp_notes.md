@@ -84,3 +84,7 @@
   Tyler
   </h1>
   ```
+- `ReactDOM.render` renders a reac element into the DOM.
+- React creates an object representation of the DOM, and can check whether or not the DOM representation has been updated by checking its memory refrences.
+- component vs element: a component is a function or a class that optionally accepts inputs and returns a react element.
+- you are not putting "html" inside of your js, react needs a compiler that turns html into React.createElement() calls. In this case we use babel.
