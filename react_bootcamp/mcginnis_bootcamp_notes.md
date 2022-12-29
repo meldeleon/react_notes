@@ -27,28 +27,28 @@
     ```
   - Now let's compose it in react.
 
-  ```javascript
-  function ProfilePic(props) {
-    return (
-      <img src = {'https://photo.fb.com/' + props.username'} />
-    )
-  }
-  function ProfileLink(props){
-    return (
-      <a href = {'https://fb.com/' + props.username'} />
-    )
-  }
-  function Avatar(props) {
-    return (
-      <div>
-        <ProfilePic username={props.username}>
-        <ProfileLink username={props.username}>
-      </div>
-    )
-  }
+    ```javascript
+    function ProfilePic(props) {
+      return (
+        <img src = {'https://photo.fb.com/' + props.username'} />
+      )
+    }
+    function ProfileLink(props){
+      return (
+        <a href = {'https://fb.com/' + props.username'} />
+      )
+    }
+    function Avatar(props) {
+      return (
+        <div>
+          <ProfilePic username={props.username}>
+          <ProfileLink username={props.username}>
+        </div>
+      )
+    }
 
-  <Avatar username="juiceboxhero">
-  ```
+    <Avatar username="juiceboxhero">
+    ```
 
   2. Unidirectional Dataflow
 
@@ -88,3 +88,35 @@
 - React creates an object representation of the DOM, and can check whether or not the DOM representation has been updated by checking its memory refrences.
 - component vs element: a component is a function or a class that optionally accepts inputs and returns a react element.
 - you are not putting "html" inside of your js, react needs a compiler that turns html into React.createElement() calls. In this case we use babel.
+- props get passed into components, and passes data to the component to be used to generate elements.
+
+## Day 2
+
+- A react element is the most fundamental building block of React.
+- jsx is just an abstraction over createElement. Components return elements.
+- Components can have their own state, that doesn't get used in any other component. This can help you break up complex states into manageable, bite-sized pieces.
+- React need key ids over iterables so that it can tell when something has changed in an iterable.
+- Functional vs Class Components
+  - if you want to have state that is managed by a react component, you need to use a class component rather than a functional component.
+  - class components rely on es6 classes. They are constructed with the following structure:
+  ```javascript
+  class App extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        friends: ["jordan", "tru", "chau"],
+      }
+    }
+    render() {
+      return (
+        <div>
+          <FriendsList list={this.state.friends} />
+        </div>
+      )
+    }
+  }
+  ```
+  - class components need a `render` method, in which you describe the UI.
+  - class components have built-in state, to set the state you need to call `constructor(props)` and `super(props)` to set the scope for `this`
+  - functional components are also called stateless functional components.
+  -
